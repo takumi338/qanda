@@ -21,6 +21,10 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user = User::find($request->id);
+        if ($request->user_profile_photo !=null) {
+            $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
+            $user->profile_photo = $user->id . '.jpg';
+        }
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();

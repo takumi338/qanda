@@ -9,6 +9,15 @@
             <div class="card">
                 <div class="card-header">ユーザー詳細</div>
                   <div class="card-body">
+                    <label for="exampleInputEmail1">プロフィール画像</label></br>
+                    @if ($user->profile_photo)
+                        <p>
+                        <img src="{{ asset('storage/user_images/' . $user->profile_photo) }}" width="100" height="100"/></br>
+                        </p>
+                        @else
+                        <img src="{{ asset('storage/user_images/blank_profile.png') }}" width="100" height="100"/></br>
+                    @endif
+                    <img src="" alt="">
                     <label for="exampleInputEmail1">名前</label>
                     <p>{{ $user->name }}</p>
                     <label for="exampleInputPassword1">メールアドレス</label>

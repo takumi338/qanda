@@ -9,11 +9,13 @@
             <div class="card">
                 <div class="card-header">ユーザー編集</div>
                   <div class="card-body">
-                    <form method="POST" action="/users/update">
+                    <form method="POST" action="/users/update" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                           <input value="{{ $user->id }}" type="hidden" name="id">
-                          <label for="exampleInputEmail1">名前</label>
+                          <label for="exampleInputEmail1">プロフィール画像</label>
+                          <input type="file" name="user_profile_photo"></br>
+                          <label class="mt-3" for="exampleInputEmail1">名前</label>
                           <input name="name" value="{{ $user->name }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="form-group">
