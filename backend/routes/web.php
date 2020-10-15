@@ -27,3 +27,10 @@ Route::post('/posts/update','PostController@update')->name('update');
 
 Route::post('/posts/destroy/{id}','PostController@destroy')->name('destroy');
 
+//user
+
+Route::get('/users/{id}','UserController@show')->name('usershow');
+
+Route::get('/users/edit/{id}','UserController@edit')->name('usersedit');
+Route::post('/users/update','UserController@update')->name('usersupdate');
+
