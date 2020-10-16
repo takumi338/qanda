@@ -37,3 +37,6 @@ Route::post('/users/update','UserController@update')->name('usersupdate')->middl
 Route::get('/', 'PostController@index')->name('posts.index');
 Route::resource('/posts', 'PostController')->except(['index', 'show'])->middleware('auth');
 Route::resource('/posts', 'PostController')->only(['show']);
+
+Route::get('/posts/like/{id}', 'PostController@like')->name('posts.like');
+Route::get('/posts/unlike/{id}', 'PostController@unlike')->name('posts.unlike');

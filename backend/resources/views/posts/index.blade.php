@@ -23,6 +23,13 @@
                         </form>
                         </div>
                         @endif
+                        <div>
+                            @if($post->is_liked_by_auth_user())
+                              <a href="{{ route('posts.unlike', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
+                            @else
+                              <a href="{{ route('posts.like', ['id' => $post->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
+                            @endif
+                          </div>
                     </div>
                 </div>
             </div> 
