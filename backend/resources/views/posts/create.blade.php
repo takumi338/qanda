@@ -1,7 +1,7 @@
 @extends('layouts.common')
 @include('layouts.header')
 @section('content')
-<form method="POST" class="post-page-wrapper" action="/posts/store">
+<form method="POST" class="post-page-wrapper" action="{{ route('posts.store') }}">
 @csrf
     <input name="title" type="text" class="form-control m-1" id="title-input" placeholder="タイトル">
     <input name="user_id" type="hidden" id="title-input" value="{{ Auth::id()}}">

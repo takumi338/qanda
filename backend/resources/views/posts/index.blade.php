@@ -14,8 +14,9 @@
                         {{ $post->content }}
                         @if(Auth::id() === $post->user_id)
                         <div>
-                            <a href="/posts/edit/{{ $post->id }}" class="btn btn-primary">編集</a>
-                        <form method="POST" action="/posts/destroy/{{ $post->id }}">
+                            <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">編集</a>
+                        <form method="POST" action="{{ route('posts.destroy', ['post' => $post]) }}">
+                            @method('DELETE')
                             @csrf
                             <input type="hidden" value="{{$post->id}}">
                             <input type="submit" class="btn btn-primary" value="削除">

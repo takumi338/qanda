@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class, 'post');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -59,9 +63,8 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post,$id)
+    public function show(Post $post)
     {
-        $post = Post::find($id);
         return view('posts.show', compact('post'));
     }
 
@@ -71,9 +74,8 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post,$id)
+    public function edit(Post $post)
     {
-        $post = Post::find($id);
         return view('posts.edit', compact('post'));
     }
 
@@ -100,9 +102,8 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Post $post)
     {
-        $post = Post::find($request->id);
         $post->delete();
         return redirect('/');
     }
