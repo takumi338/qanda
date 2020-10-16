@@ -17,20 +17,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/','PostController@index')->name('index');
 
-Route::get('/posts/create','PostController@create')->name('create');
-Route::post('/posts/store','PostController@store')->name('store');
+Route::get('/posts/create','PostController@create')->name('create')->middleware('auth');
+Route::post('/posts/store','PostController@store')->name('store')->middleware('auth');
 
 Route::get('/posts/{id}','PostController@show')->name('show');
 
-Route::get('/posts/edit/{id}','PostController@edit')->name('edit');
-Route::post('/posts/update','PostController@update')->name('update');
+Route::get('/posts/edit/{id}','PostController@edit')->name('edit')->middleware('auth');
+Route::post('/posts/update','PostController@update')->name('update')->middleware('auth');
 
-Route::post('/posts/destroy/{id}','PostController@destroy')->name('destroy');
+Route::post('/posts/destroy/{id}','PostController@destroy')->name('destroy')->middleware('auth');
 
 //user
 
-Route::get('/users/{id}','UserController@show')->name('usershow');
+Route::get('/users/{id}','UserController@show')->name('usershow')->middleware('auth');
 
-Route::get('/users/edit/{id}','UserController@edit')->name('usersedit');
-Route::post('/users/update','UserController@update')->name('usersupdate');
+Route::get('/users/edit/{id}','UserController@edit')->name('usersedit')->middleware('auth');
+Route::post('/users/update','UserController@update')->name('usersupdate')->middleware('auth');
 

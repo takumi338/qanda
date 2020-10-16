@@ -18,10 +18,10 @@ class PostController extends Controller
             // SQLのlike句でitemsテーブルを検索する
             $posts = Post::where('title', 'like', '%'.$request->get('keyword').'%')
             ->orWhere('content', 'like', '%' . $request->get('keyword').'%')
-            ->paginate(15);
+            ->orderBy('created_at', 'desc')->paginate(5);
         }
         else{
-            $posts = Post::paginate(15);
+            $posts = Post::orderBy('created_at', 'desc')->paginate(5);
         }
         return view('posts.index',compact('posts'));
     }
