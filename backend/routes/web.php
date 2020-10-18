@@ -40,3 +40,5 @@ Route::resource('/posts', 'PostController')->only(['show']);
 
 Route::get('/posts/like/{id}', 'PostController@like')->name('posts.like');
 Route::get('/posts/unlike/{id}', 'PostController@unlike')->name('posts.unlike');
+
+Route::post('/comments/update', 'CommentController@store')->name('comments.store');
