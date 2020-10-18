@@ -22,6 +22,11 @@ class Post extends Model
         return $this->hasMany(Like::class, 'post_id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
         /**
      * リプライにLIKEを付いているかの判定
     *
