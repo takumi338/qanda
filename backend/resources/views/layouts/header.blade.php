@@ -9,12 +9,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                <form method="GET" action="/">
-                    <input type="text" name="keyword">
-                    <input type="submit" value="質問検索">
-                </form>
-            </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">

@@ -40,7 +40,7 @@ Route::get('/', 'PostController@index')->name('posts.index');
 Route::resource('/posts', 'PostController')->except(['index', 'show'])->middleware('auth');
 Route::resource('/posts', 'PostController')->only(['show']);
 
-Route::get('/posts/like/{id}', 'PostController@like')->name('posts.like');
-Route::get('/posts/unlike/{id}', 'PostController@unlike')->name('posts.unlike');
+Route::get('/posts/like/{id}', 'PostController@like')->name('posts.like')->middleware('auth');
+Route::get('/posts/unlike/{id}', 'PostController@unlike')->name('posts.unlike')->middleware('auth');
 
-Route::post('/comments/update', 'CommentController@store')->name('comments.store');
+Route::post('/comments/update', 'CommentController@store')->name('comments.store')->middleware('auth');
