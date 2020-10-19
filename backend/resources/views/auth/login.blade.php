@@ -57,6 +57,10 @@
                                     {{ __('ログイン') }}
                                 </button>
 
+                                <button type="submit" class="btn btn-primary">
+                                    　　<a class="text-white" href="/login/guest">ゲストログイン</a>
+                                </button>
+
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('パスワードを忘れた方はこちら') }}
