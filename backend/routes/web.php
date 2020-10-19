@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::get('/login/guest', 'Auth\LoginController@guestLogin');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/','PostController@index')->name('index');
