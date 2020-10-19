@@ -11,7 +11,12 @@
                 <div class="card">
                     <div class="card-header">{{ $post->title }}</div>
                     <div class="card-body">
-                        {{ $post->content }}
+                      <p>{{ $post->content }}</p>
+                        @if(!($post->tags == '[]'))
+                        @for ($i = 0; $i < $post->tags->count(); $i++)
+                        #{{ $post->tags[$i]->name }}
+                        @endfor
+                        @endif
                         @if(Auth::id() === $post->user_id)
                         <div>
                             <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">編集</a>
@@ -30,6 +35,10 @@
                               <a href="{{ route('posts.like', ['id' => $post->id]) }}" class="btn btn-secondary btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
                             @endif
                           </div>
+                          @if(!($post->comments->count() == 0))
+                          回答数：{{ $post->comments->count() }}
+                            @endif
+                            <p>投稿：{{$post->updated_at}}</p>
                     </div>
                 </div>
             </div> 
