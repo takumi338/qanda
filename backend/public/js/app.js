@@ -52456,6 +52456,13 @@ $(function (e) {
   // // var a = $('#comment1')
   // var h = marked(t.html());
   // $('p[id^=comment]').html(h);
+
+  'use strict'; // フラッシュメッセージのfadeout
+
+
+  $(function () {
+    $('.flash_message').fadeOut(2000);
+  });
 });
 
 /***/ }),

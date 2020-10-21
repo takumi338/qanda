@@ -7,6 +7,7 @@ use App\Like;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -49,7 +50,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $post = new Post();
         $post->title = $request->title;
@@ -72,6 +73,7 @@ class PostController extends Controller
         // $post->tags()->attach($request->tags);
         $post->save();
         $post->tags()->attach($tags_id);
+        \Session::flash('flash_message','投稿成功しました。');
         return redirect('/');
 
     }
@@ -105,7 +107,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         $post = Post::find($request->id);
         $post->title = $request->title;
@@ -131,6 +133,7 @@ class PostController extends Controller
         $post->tags()->sync($tags_id);
 
         $post->save();
+        \Session::flash('flash_message','編集成功しました。');
         return redirect('/');
     }
 
@@ -143,6 +146,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
+        \Session::flash('flash_message','削除成功しました。');
         return redirect('/');
     }
 
@@ -159,6 +163,7 @@ class PostController extends Controller
         'user_id' => Auth::id(),
         ]);
 
+        \Session::flash('flash_message','いいねしました。');
         return redirect()->back();
     }
 

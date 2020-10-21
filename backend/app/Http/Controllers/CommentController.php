@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
+use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
@@ -33,13 +34,14 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommentRequest $request)
     {
         $comment = new Comment();
         $comment->text = $request->text;
         $comment->post_id = $request->post_id;
         $comment->user_id = $request->user_id;
         $comment->save();
+        \Session::flash('flash_message','コメント投稿しました。');
         return redirect()->back();
     }
 
