@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center mt-4">
+    <div class="row justify-content-center my-4">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">ユーザー詳細</div>
+                <div class="card-header"><i class="far fa-user mr-2"></i>ユーザー詳細</div>
                   <div class="card-body">
                     <label for="exampleInputEmail1">プロフィール画像</label></br>
                     @if ($user->profile_photo)

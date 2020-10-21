@@ -52443,25 +52443,19 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
- // マークダウンをプレビュー画面に表示する
 
-$(function () {
-  marked__WEBPACK_IMPORTED_MODULE_0___default.a.setOptions({
-    langPrefix: '',
-    breaks: true,
-    sanitize: true
-  });
+$(function (e) {
   $('#markdown_editor_textarea').keyup(function () {
-    var html = marked__WEBPACK_IMPORTED_MODULE_0___default()(getHtml($(this).val()));
+    var html = marked__WEBPACK_IMPORTED_MODULE_0___default()($(this).val());
     $('#markdown_preview').html(html);
-  }); // 比較演算子が &lt; 等になるので置換
-
-  function getHtml(html) {
-    html = html.replace(/&lt;/g, '<');
-    html = html.replace(/&gt;/g, '>');
-    html = html.replace(/&amp;/g, '&');
-    return html;
-  }
+  });
+  var target = $('.post_content');
+  var html = marked__WEBPACK_IMPORTED_MODULE_0___default()(target.html());
+  $('.post_content').html(html); // // var t = $('[id^=comment-]')
+  // var t = $('p[id^=comment]')
+  // // var a = $('#comment1')
+  // var h = marked(t.html());
+  // $('p[id^=comment]').html(h);
 });
 
 /***/ }),
