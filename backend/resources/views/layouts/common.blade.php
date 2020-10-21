@@ -25,17 +25,14 @@
   <div id="app">
     <div class="container">
       <div class="row">
-      <div class="col-3">
-      <div class="sidebar_content">
-        @include('layouts.sidebar')
-      </div>
-      </div>
+        @yield('sidebar-content')
       <div class="col">
         @yield('content')
       </div>
       </div>
       </div>
   </div>
+  @include('layouts.footer')
 
   <script src="{{ mix('js/app.js') }}"></script> {{--この行を追加--}}
   <!-- JQuery -->

@@ -1,9 +1,15 @@
-<div class="sidebar_content mt-4">
-    <form method="GET" action="/">
-      <div class="form-group">
-        <label for="exampleInputEmail1">条件で絞り込む</label>
-        <input name="keyword" type="text" class="form-control" placeholder="キーワードを入力してください">
+<div class="col-xs-12 col-sm-12 col-md-3">
+    <div class="sidebar_content">
+      <div class="sidebar_content mt-4">
+        <form method="GET" action="/">
+          <div class="form-group mb-4">
+            <label class="mb-4 d-block text-center text-primary" for="exampleInputEmail1"><i class="far fa-comment mr-1"></i>質問を検索する</label>
+            <input name="keyword" type="text" class="form-control" placeholder="キーワードを入力してください">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="col-xs-8 col-sm-8 btn btn-primary"><i class="fas fa-search mr-1"></i>質問検索</button>
+          </div> 
+        </form>
       </div>
-      <button type="submit" class="btn btn-primary">質問検索</button>
-    </form>
-  </div>
+    </div>
+</div>
