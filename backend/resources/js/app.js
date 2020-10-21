@@ -52,4 +52,11 @@ $(function (e) {
     // var h = marked(t.html());
 	// $('p[id^=comment]').html(h);
 
+
+	'use strict';
+
+    // フラッシュメッセージのfadeout
+    $(function(){
+        $('.flash_message').fadeOut(2000);
+    });
 });
