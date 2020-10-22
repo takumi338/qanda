@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 
@@ -10,7 +11,9 @@ class UserController extends Controller
 {
     public function show($id){
         $user = User::find($id);
-        return view('users/show',compact(('user')));
+        $posts = Post::where('user_id', $id)
+            ->orderBy('created_at', 'desc')->paginate(5);
+        return view('users/show',compact('user','posts'));
     }
 
     public function edit(User $user,$id)
@@ -30,6 +33,15 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->save();
         \Session::flash('flash_message','編集成功しました。');
+        return redirect('/');
+    }
+
+    public function destroy(Request $request,User $user)
+    {
+        $user = User::find($request->id);
+        $user->delete();
+        
+        \Session::flash('flash_message','削除成功しました。');
         return redirect('/');
     }
 

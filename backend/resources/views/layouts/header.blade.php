@@ -41,7 +41,7 @@
                             </a> 
 
                             <a class="dropdown-item" href="/users/{{ Auth::id() }}">
-                                ユーザー詳細
+                                プロフィール
                             </a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"

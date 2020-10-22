@@ -11,11 +11,7 @@
           <div class="row justify-content-center mt-4">
               <div class="col-md-12">
                   <div class="card card-shadow"> 
-                    {{-- <a class="card-header_title" href="/posts/{{ $post->id }}">
-                      <div class="card-header">
-                          {{ $post->title }}
-                      </div>
-                    </a> --}}
+
                         <div class="row">
                         <div class="col-2">
                         <div class="sidebar_content">

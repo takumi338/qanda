@@ -7,7 +7,34 @@
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><i class="far fa-user mr-2"></i>ユーザー編集</div>
+                <div class="card-header d-flex justify-content-between">
+                  <div>
+                    <i class="far fa-user mr-2"></i>ユーザー編集
+                  </div>
+                  <div>
+                    <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      <i class="fas fa-ellipsis-v fa-lg	"></i>
+                    </a>
+  
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+  
+  
+                      <a class="dropdown-item" href="{{ route('users.destroy') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('delete').submit();">
+                            {{ __('削除') }}
+                        </a>
+  
+                        <form id="delete" action="{{ route('users.destroy') }}" method="POST" style="display: none;">
+                          @method('DELETE')
+                          @csrf
+                          <input name="id" type="hidden" value="{{$user->id}}">
+                        </form>
+  
+                    </div>
+                  </div>
+                  
+                </div>
                   <div class="card-body">
                     <form method="POST" action="/users/update" enctype="multipart/form-data">
                         @csrf
@@ -24,6 +51,19 @@
                         </div>
                         <button type="submit" class="btn btn-primary">保存する</button>
                       </form>
+
+                      {{-- <button class="btn btn-primary"
+                      
+                        onclick="event.preventDefault();
+                                      document.getElementById('delete').submit();"
+                                      location.href="{{ route('users.destroy') }}">
+                         {{ __('削除する') }}
+                      </button>
+                      <form id="delete" action="{{ route('users.destroy') }}" method="POST" style="display: none;">
+                        @method('DELETE')
+                        @csrf
+                        <input name="id" type="hidden" value="{{$user->id}}">
+                      </form> --}}
                   </div>
             </div>
         </div> 
