@@ -31,10 +31,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //user
 
-Route::get('/users/{id}','UserController@show')->name('usershow')->middleware('auth');
+Route::get('/users/{id}','UserController@show')->name('users.show')->middleware('auth');
 
-Route::get('/users/edit/{id}','UserController@edit')->name('usersedit')->middleware('auth');
-Route::post('/users/update','UserController@update')->name('usersupdate')->middleware('auth');
+Route::get('/users/edit/{id}','UserController@edit')->name('users.edit')->middleware('auth');
+Route::post('/users/update','UserController@update')->name('users.update')->middleware('auth');
+Route::delete('/users/destroy','UserController@destroy')->name('users.destroy')->middleware('auth');
 
 Route::get('/', 'PostController@index')->name('posts.index');
 Route::resource('/posts', 'PostController')->except(['index', 'show'])->middleware('auth');
