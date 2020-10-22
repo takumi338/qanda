@@ -43,4 +43,7 @@ Route::resource('/posts', 'PostController')->only(['show']);
 Route::get('/posts/like/{id}', 'PostController@like')->name('posts.like')->middleware('auth');
 Route::get('/posts/unlike/{id}', 'PostController@unlike')->name('posts.unlike')->middleware('auth');
 
-Route::post('/comments/update', 'CommentController@store')->name('comments.store')->middleware('auth');
+Route::post('/comments/store', 'CommentController@store')->name('comments.store')->middleware('auth');
+Route::get('/comments/edit/{id}','CommentController@edit')->name('comments.edit')->middleware('auth');
+Route::patch('/comments/update','CommentController@update')->name('comments.update')->middleware('auth');
+Route::delete('/comments/destroy','CommentController@destroy')->name('comments.destroy')->middleware('auth');

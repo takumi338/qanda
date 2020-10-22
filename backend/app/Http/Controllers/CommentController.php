@@ -62,9 +62,10 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment)
+    public function edit(Comment $comment,$id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('comments.edit', compact('comment'));
     }
 
     /**
@@ -74,9 +75,17 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(CommentRequest $request, Comment $comment)
     {
-        //
+
+        
+        $comment = Comment::find($request->id);
+        $comment->user_id = $request->user_id;
+        $comment->post_id = $request->post_id;
+        $comment->text = $request->text;
+        $comment->save();
+        \Session::flash('flash_message','編集成功しました。');
+        return redirect('/');
     }
 
     /**
@@ -85,8 +94,12 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Request $request,Comment $comment)
     {
-        //
+        $comment = Comment::find($request->id);
+        $comment->delete();
+        
+        \Session::flash('flash_message','削除成功しました。');
+        return redirect('/');
     }
 }

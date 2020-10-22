@@ -90,8 +90,38 @@
                                 <div class="user_name mr-2">{{ $post->comments[$i]->user->name }}</div>
                                 <div class="user_image"><img src="{{ asset('storage/user_images/' . $post->comments[$i]->user->profile_photo) }}" width="20" height="20"/></div>
                               </div>
+
+                                  
+                              <div class="d-flex">
                                 <div class="updated_time">{{date('Y年n月j日 H:i', strtotime($post->comments[$i]->updated_at))}}</div>
+                                <div>
+                                  @if(Auth::id() === $post->comments[$i]->user_id)
+                                  <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fas fa-angle-down fa-lg"></i>
+                                  </a>
+                
+                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                
+                                  <a href="/comments/edit/{{$post->comments[$i]->id}}" class="dropdown-item">編集</a>
+                
+                                    <a class="dropdown-item" href="{{ route('comments.destroy') }}"
+                                        onclick="event.preventDefault();
+                                                      document.getElementById('destroy').submit();">
+                                          {{ __('削除') }}
+                                      </a>
+                
+                                      <form　method="POST" id="destroy" action="{{ route('comments.destroy') }}" style="display: none;">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input name="id" type="hidden" value="{{$post->comments[$i]->id}}">
+                                      </form>
+                
+                                  </div>
+                                  @endif
+                                </div> 
                             </div>
+                              </div>
+                                
                           <p id="comment">
                                 {{ $post->comments[$i]->text }}
                             </p>
@@ -104,7 +134,7 @@
     @endif
 </div>
 
-<form method="POST" action="/comments/update" class="mt-4">
+<form method="POST" action="/comments/store" class="mt-4">
   <label for="inputPassword" class="col col-form-label">コメント</label>
   @csrf
     <div class="form-group row">
