@@ -34,6 +34,7 @@ class PostRequest extends FormRequest
         return [
             'title' => 'タイトル',
             'content' => '本文',
+            'tags' => 'タグ',
         ];
     }
 }

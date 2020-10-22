@@ -11,28 +11,49 @@
                   <div>
                     <i class="far fa-user mr-2"></i>ユーザー編集
                   </div>
-                  <div>
-                    <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      <i class="fas fa-ellipsis-v fa-lg	"></i>
-                    </a>
-  
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-  
-  
-                      <a class="dropdown-item" href="{{ route('users.destroy') }}"
-                           onclick="event.preventDefault();
-                                         document.getElementById('delete').submit();">
-                            {{ __('削除') }}
+                  <!-- dropdown -->
+                  <div class="ml-auto card-text">
+                    <div class="dropdown">
+                      <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-link text-muted m-0 p-2">
+                          <i class="fas fa-ellipsis-v fa-lg text-primary"></i>
+                        </button>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $user->id }}">
+                          <i class="fas fa-trash-alt mr-1"></i>ユーザーを削除する
                         </a>
-  
-                        <form id="delete" action="{{ route('users.destroy') }}" method="POST" style="display: none;">
-                          @method('DELETE')
-                          @csrf
-                          <input name="id" type="hidden" value="{{$user->id}}">
-                        </form>
-  
+                      </div>
                     </div>
                   </div>
+                  <!-- dropdown -->
+          
+                  <!-- modal -->
+                  <div id="modal-delete-{{ $user->id }}" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form method="POST" action="{{ route('users.destroy', ['user' => $user]) }}">
+                          @csrf
+                          @method('DELETE')
+                          <input name="id" type="hidden" value="{{$user->id}}">
+                          <div class="modal-body">
+                            {{ $user->name }}を削除します。よろしいですか？
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                            <button type="submit" class="btn btn-danger">削除する</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- modal -->
                   
                 </div>
                   <div class="card-body">

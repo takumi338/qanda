@@ -27,11 +27,14 @@ class PostController extends Controller
             $posts = Post::where('title', 'like', '%'.$request->get('keyword').'%')
             ->orWhere('content', 'like', '%' . $request->get('keyword').'%')
             ->orderBy('created_at', 'desc')->paginate(5);
+            $tags = Tag::all();
         }
         else{
             $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+            $tags = Tag::all();
         }
-        return view('posts.index',compact('posts'));
+        return view('posts.index',compact('posts','tags'));
+        return view('layouts.sidebar',compact('tags'));
     }
 
     /**
@@ -86,7 +89,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        $tags = Tag::all();
+        return view('posts.show', compact('post','tags'));
     }
 
     /**

@@ -44,7 +44,7 @@
                             <div class="mb-3">
                               @if(!($post->tags == '[]'))
                               @for ($i = 0; $i < $post->tags->count(); $i++)
-                              <a href="#" class="tags">#{{ $post->tags[$i]->name }}</a>
+                              <a href="{{ route('tags.show', ['name' => $post->tags[$i]->name]) }}" class="tags">#{{ $post->tags[$i]->name }}</a>
                               @endfor
                               @endif
                             </div>

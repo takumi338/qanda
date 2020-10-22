@@ -12,4 +12,13 @@
         </form>
       </div>
     </div>
+
+    <div class="sidebar_content">
+      <div class="sidebar_content mt-4">
+        @foreach ($tags as $tag)
+            <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="d-inline-block tags mb-1 mr-1">#{{$tag->name}}</a> 
+        @endforeach
+      </div>
+    </div>
+
 </div>

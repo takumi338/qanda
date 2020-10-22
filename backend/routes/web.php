@@ -48,3 +48,5 @@ Route::post('/comments/store', 'CommentController@store')->name('comments.store'
 Route::get('/comments/edit/{id}','CommentController@edit')->name('comments.edit')->middleware('auth');
 Route::patch('/comments/update','CommentController@update')->name('comments.update')->middleware('auth');
 Route::delete('/comments/destroy','CommentController@destroy')->name('comments.destroy')->middleware('auth');
+
+Route::get('/tags/{name}', 'TagController@show')->name('tags.show');

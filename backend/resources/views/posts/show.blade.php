@@ -19,7 +19,58 @@
                 </div>
                 
                 <div>
-                  @if(Auth::id() === $post->user_id)
+
+
+
+                  @if( Auth::id() === $post->user_id )
+                  <!-- dropdown -->
+                  <div class="ml-auto card-text">
+                    <div class="dropdown">
+                      <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-link text-muted m-0 p-2">
+                          <i class="fas fa-ellipsis-v fa-lg text-primary"></i>
+                        </button>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="{{ route("posts.edit", ['post' => $post]) }}">
+                          <i class="fas fa-pen mr-1"></i>記事を編集する
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $post->id }}">
+                          <i class="fas fa-trash-alt mr-1"></i>記事を削除する
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- dropdown -->
+          
+                  <!-- modal -->
+                  <div id="modal-delete-{{ $post->id }}" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form method="POST" action="{{ route('posts.destroy', ['post' => $post]) }}">
+                          @csrf
+                          @method('DELETE')
+                          <div class="modal-body">
+                            {{ $post->title }}を削除します。よろしいですか？
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                            <button type="submit" class="btn btn-danger">削除する</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- modal -->
+                @endif
+        
+                  {{-- @if(Auth::id() === $post->user_id)
                   <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     <i class="fas fa-ellipsis-v fa-lg	"></i>
                   </a>
@@ -41,7 +92,7 @@
                       </form>
 
                   </div>
-                  @endif
+                  @endif --}}
                 </div>              
               </div>
                 
@@ -95,29 +146,55 @@
                               <div class="d-flex">
                                 <div class="updated_time">{{date('Y年n月j日 H:i', strtotime($post->comments[$i]->updated_at))}}</div>
                                 <div>
-                                  @if(Auth::id() === $post->comments[$i]->user_id)
-                                  <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fas fa-angle-down fa-lg"></i>
-                                  </a>
-                
-                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                
-                                  <a href="/comments/edit/{{$post->comments[$i]->id}}" class="dropdown-item">編集</a>
-                
-                                    <a class="dropdown-item" href="{{ route('comments.destroy') }}"
-                                        onclick="event.preventDefault();
-                                                      document.getElementById('destroy').submit();">
-                                          {{ __('削除') }}
-                                      </a>
-                
-                                      <form　method="POST" id="destroy" action="{{ route('comments.destroy') }}" style="display: none;">
-                                        @method('DELETE')
-                                        @csrf
-                                        <input name="id" type="hidden" value="{{$post->comments[$i]->id}}">
-                                      </form>
-                
-                                  </div>
-                                  @endif
+
+                 @if( Auth::id() === $post->comments[$i]->user_id )
+                  <!-- dropdown -->
+                  <div class="ml-auto card-text">
+                    <div class="dropdown">
+                      <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-link text-muted m-0 p-2">
+                          <i class="fas fa-angle-down fa-lg text-primary"></i>
+                        </button>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="/comments/edit/{{$post->comments[$i]->id}}">
+                          <i class="fas fa-pen mr-1"></i>コメントを編集する
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $post->id }}">
+                          <i class="fas fa-trash-alt mr-1"></i>コメントを削除する
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- dropdown -->
+          
+                  <!-- modal -->
+                  <div id="modal-delete-{{ $post->id }}" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <form method="POST" action="{{ route('comments.destroy') }}">
+                          @csrf
+                          @method('DELETE')
+                          <input name="id" type="hidden" value="{{$post->comments[$i]->id}}">
+                          <div class="modal-body">
+                            コメントを削除します。よろしいですか？
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                            <button type="submit" class="btn btn-danger">削除する</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- modal -->
+                @endif
                                 </div> 
                             </div>
                               </div>
