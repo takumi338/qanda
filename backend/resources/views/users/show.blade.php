@@ -8,9 +8,8 @@
             <div class="row justify-content-center my-4">
                 <div class="col">
                     <div class="card">
-                        <div class="card-header"><i class="far fa-user mr-2"></i>プロフィール</div>
-                          <div class="card-body">
-                            <label for="exampleInputEmail1">プロフィール画像</label></br>
+                        <div class="card-header text-center"><i class="far fa-user mr-2"></i>プロフィール</div>
+                          <div class="card-body text-center">
                             @if ($user->profile_photo)
                                 <p>
                                 <img src="{{ asset('storage/user_images/' . $user->profile_photo) }}" width="100" height="100"/></br>
@@ -18,11 +17,19 @@
                                 @else
                                 <img src="{{ asset('storage/user_images/blank_profile.png') }}" width="100" height="100"/></br>
                             @endif
-                            <img src="" alt="">
-                            <label for="exampleInputEmail1">名前</label>
-                            <p>{{ $user->name }}</p>
-                            <label for="exampleInputPassword1">メールアドレス</label>
-                            <p>{{ $user->email }}</p>
+                            <p class="profile_name">{{ $user->name }}</p>
+                            <div class="row justify-content-around">
+                              <div>
+                                <label for="exampleInputEmail1">投稿数</label>
+                                <p class="profile_name">{{ $user->posts->count() }}</p>
+                              </div>
+                              <div>
+                                <label for="exampleInputEmail1">回答数</label>
+                                <p class="profile_name">{{ $user->comments->count() }}</p>
+                              </div>
+                              
+                            </div>
+
                             <div>
                                 <a href="/users/edit/{{ Auth::id() }}" class="btn btn-primary">プロフィール編集</a>
                             </div>

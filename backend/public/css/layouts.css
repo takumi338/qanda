@@ -10,6 +10,11 @@ img{
     border-radius: 5px;
 }
 
+.profile_name{
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
 .tags{
     background-color: #f1f1f1;
     border: 1px solid #d4d4d4;
