@@ -9,6 +9,13 @@ use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        // $this->authorizeResource(User::class, 'user');
+        
+    }
+
     public function show($id){
         $user = User::find($id);
         $posts = Post::where('user_id', $id)
@@ -19,6 +26,7 @@ class UserController extends Controller
     public function edit(User $user,$id)
     {
         $user = User::find($id);
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }
 
