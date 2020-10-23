@@ -65,6 +65,7 @@ class CommentController extends Controller
     public function edit(Comment $comment,$id)
     {
         $comment = Comment::find($id);
+        $this->authorize('update', $comment);
         return view('comments.edit', compact('comment'));
     }
 
@@ -97,8 +98,8 @@ class CommentController extends Controller
     public function destroy(Request $request,Comment $comment)
     {
         $comment = Comment::find($request->id);
+        $this->authorize('delete', $comment);
         $comment->delete();
-        
         \Session::flash('flash_message','削除成功しました。');
         return redirect('/');
     }
