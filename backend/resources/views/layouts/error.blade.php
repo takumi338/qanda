@@ -42,7 +42,7 @@
 
 <div class="flex-center position-ref full-height">
     <div class="content">
-        <i class="far fa-times-circle fa-7x"></i>
+        <i class="far fa-times-circle fa-7x text-primary"></i>
         <div class="title">
             @yield('error')
         </div>

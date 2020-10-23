@@ -101,7 +101,12 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        $hash = '#';
+        $before = [];
+       foreach($post->tags as $tag){
+           array_push($before, $tag->name);
+       }
+        return view('posts.edit', compact('post','before','hash'));
     }
 
     /**
