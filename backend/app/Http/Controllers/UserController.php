@@ -10,12 +10,6 @@ use App\Http\Requests\UserRequest;
 class UserController extends Controller
 {
 
-    public function __construct()
-    {
-        // $this->authorizeResource(User::class, 'user');
-        
-    }
-
     public function show($id){
         $user = User::find($id);
         $posts = Post::where('user_id', $id)
