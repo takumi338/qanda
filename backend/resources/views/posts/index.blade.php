@@ -58,11 +58,12 @@
                                 @endif
                               </div>
 
+                              <a href="/users/{{$post->user->id}}">
                               <div class="d-flex">
                                 <div class="user_name mr-2 text-primary">{{ $post->user->name }}</div>
                                 <div class="user_image"><img src="{{ asset('storage/user_images/' . $post->user->profile_photo) }}" width="30" height="30"/></div>
-                                </a>
                               </div>
+                            </a>
                             </div>
                               
                                 
