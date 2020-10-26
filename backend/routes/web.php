@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/login/guest', 'Auth\LoginController@guestLogin');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 // Route::get('/','PostController@index')->name('index');
 
@@ -37,7 +37,7 @@ Route::get('/users/edit/{id}','UserController@edit')->name('users.edit')->middle
 Route::post('/users/update','UserController@update')->name('users.update')->middleware('auth');
 Route::delete('/users/destroy','UserController@destroy')->name('users.destroy')->middleware('auth');
 
-Route::get('/', 'PostController@index')->name('posts.index');
+Route::get('/allposts', 'PostController@index')->name('posts.index');
 Route::resource('/posts', 'PostController')->except(['index', 'show'])->middleware('auth');
 Route::resource('/posts', 'PostController')->only(['show']);
 

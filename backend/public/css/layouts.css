@@ -170,3 +170,25 @@ img{
           footer{
               font-size: 0.8em;
           }
+
+          .swiper-container {
+            width: 100%;
+            height: 450px;
+        }
+
+        .start{
+            font-size: 20px;
+            border-radius: 30px;
+        }
+
+        .catch p{
+            color: #828e96;
+        }
+
+        .introduction-title{
+            color: #666;
+        }
+
+        .introduction-content{
+            color: #828e96;
+        }
