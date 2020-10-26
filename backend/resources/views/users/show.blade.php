@@ -98,7 +98,12 @@
                               <a href="/users/{{$post->user->id}}">
                               <div class="d-flex">
                                 <div class="user_name mr-2 text-primary">{{ $post->user->name }}</div>
-                                <div class="user_image"><img src="{{ asset('storage/user_images/' . $post->user->profile_photo) }}" width="30" height="30"/></div>
+                                @if ($post->user->profile_photo)
+                                    <div class="user_image"><img src="{{ asset('storage/user_images/' . $post->user->profile_photo) }}" width="30" height="30"/></div>
+                                @else
+                                    <img src="{{ asset('storage/user_images/blank_profile.png') }}" width="30" height="30"/>
+                                @endif
+                                
                               </div>
                             </a>
                             </div>

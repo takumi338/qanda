@@ -77,7 +77,7 @@ class PostController extends Controller
         $post->save();
         $post->tags()->attach($tags_id);
         \Session::flash('flash_message','投稿成功しました。');
-        return redirect('/');
+        return redirect(route('posts.index'));
 
     }
 
@@ -143,7 +143,7 @@ class PostController extends Controller
 
         $post->save();
         \Session::flash('flash_message','編集成功しました。');
-        return redirect('/');
+        return redirect(route('posts.index'));
     }
 
     /**
@@ -156,7 +156,7 @@ class PostController extends Controller
     {
         $post->delete();
         \Session::flash('flash_message','削除成功しました。');
-        return redirect('/');
+        return redirect(route('posts.index'));
     }
 
         /**
