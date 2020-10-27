@@ -23,9 +23,7 @@ class RegisterTest extends TestCase
         ];
 
         $this->assertDatabaseHas('users', [
-            'email' => $user->email,
+            'id' => $user->id,
         ]);
-
-        $response->assertStatus(200);
     }
 }
