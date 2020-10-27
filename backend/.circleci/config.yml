@@ -4,5 +4,6 @@ jobs:
     docker:
       - image: circleci/php:7.3-node-browsers
     steps:
+      - run: ls
       - run: echo "Hello World"
 
