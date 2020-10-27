@@ -5,6 +5,7 @@ jobs:
       - image: circleci/php:7.3-node-browsers
     steps:
       - checkout
+      - run: ls
       - run: composer install -n --prefer-dist
       - run: npm ci
       - run: npm run dev
