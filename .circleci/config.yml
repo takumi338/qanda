@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run: composer install -n --prefer-dist --working-dir=./backend
-      - run: npm ci --cwd ./backend
-      - run: npm run dev --working-dir=./backend
+      # - run: npm ci --working-dir=./backend
+      # - run: npm run dev --working-dir=./backend
       - run:
           name: php test --working-dir=./backend
           command: vendor/bin/phpunit --working-dir=./backend
