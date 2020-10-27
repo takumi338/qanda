@@ -11,7 +11,14 @@ jobs:
       - DB_HOST: 127.0.0.1
     steps:
       - checkout
+      - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "./backend/composer.lock" }}
       - run: composer install -n --prefer-dist --working-dir=./backend
+      - save_cache:
+        key: composer-v1-{{ checksum "./backend/composer.lock" }}
+        paths:
+          - ./backend/vendor
       - run: sudo apt update
       - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo composer self-update
