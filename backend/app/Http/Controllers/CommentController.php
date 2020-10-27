@@ -86,7 +86,7 @@ class CommentController extends Controller
         $comment->text = $request->text;
         $comment->save();
         \Session::flash('flash_message','編集成功しました。');
-        return redirect('/');
+        return redirect(route('posts.index'));
     }
 
     /**
@@ -101,6 +101,6 @@ class CommentController extends Controller
         $this->authorize('delete', $comment);
         $comment->delete();
         \Session::flash('flash_message','削除成功しました。');
-        return redirect('/');
+        return redirect(route('posts.index'));
     }
 }

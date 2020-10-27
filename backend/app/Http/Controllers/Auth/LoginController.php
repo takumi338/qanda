@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
-        return '/';
+        return '/allposts';
     }
 
     public function guestLogin()
@@ -53,6 +53,6 @@ class LoginController extends Controller
             return redirect()->route('posts.index');
         }
 
-        return redirect('/');
+        return redirect(route('posts.index'));
     }
 }

@@ -35,7 +35,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->save();
         \Session::flash('flash_message','編集成功しました。');
-        return redirect('/');
+        return redirect(route('posts.index'));
     }
 
     public function destroy(Request $request,User $user)
@@ -44,7 +44,7 @@ class UserController extends Controller
         $user->delete();
         
         \Session::flash('flash_message','削除成功しました。');
-        return redirect('/');
+        return redirect(route('posts.index'));
     }
 
 }
