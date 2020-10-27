@@ -8,6 +8,5 @@ jobs:
       - run: composer install -n --prefer-dist --working-dir=./backend
       # - run: npm ci --working-dir=./backend
       # - run: npm run dev --working-dir=./backend
-      - run:
-          name: php test --working-dir=./backend
-          command: vendor/bin/phpunit --working-dir=./backend
+      - run: php ./backend/artisan --env=testing
+      - run: php ./backend/vendor/bin/phpunit --configuration=./backend/phpunit.xml
