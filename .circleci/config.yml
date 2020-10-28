@@ -23,7 +23,5 @@ jobs:
       - run: sudo apt update
       - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo composer self-update
-      # - run: npm ci --working-dir=./backend
-      # - run: npm run dev --working-dir=./backend
       - run: php ./backend/artisan --env=testing
       - run: php ./backend/vendor/bin/phpunit --configuration=./backend/phpunit.xml
