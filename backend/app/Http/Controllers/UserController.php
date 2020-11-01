@@ -27,10 +27,11 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user)
     {
         $user = User::find($request->id);
-        if ($request->user_profile_photo !=null) {
-            $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
-            $user->profile_photo = $user->id . '.jpg';
-        }
+        // if ($request->user_profile_photo !=null) {
+        //     $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
+        //     $user->profile_photo = $user->id . '.jpg';
+        // }
+        $path = Storage::disk('s3')->putFile('/', $file, 'public');
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
