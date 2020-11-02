@@ -34,7 +34,7 @@ class UserController extends Controller
         // }
         $image = $request->file('user_profile_photo');
             // バケットの`user_images`フォルダへアップロード
-        $path = Storage::disk('s3')->putFile('user_images/', $image, 'public');
+        $path = Storage::disk('s3')->putFile('user_images', $image, 'public');
         $user->profile_photo = Storage::disk('s3')->url($path);
         $user->name = $request->name;
         $user->email = $request->email;
