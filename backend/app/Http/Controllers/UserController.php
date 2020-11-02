@@ -6,6 +6,7 @@ use App\User;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use Storage;
 
 class UserController extends Controller
 {
@@ -34,10 +35,9 @@ class UserController extends Controller
         $image = $request->file('user_profile_photo');
             // バケットの`pogtor528`フォルダへアップロード
         $path = Storage::disk('s3')->putFile('user_images', $image, 'public');
-        $url = Storage::disk('s3')->url($path);
+        $user->profile_photo = Storage::disk('s3')->url($path);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->profile_photo = $url;
         $user->save();
         \Session::flash('flash_message','編集成功しました。');
         return redirect(route('posts.index'));
