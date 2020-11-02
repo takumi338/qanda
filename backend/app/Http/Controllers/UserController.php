@@ -28,14 +28,15 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user)
     {
         $user = User::find($request->id);
-        // if ($request->user_profile_photo !=null) {
-        //     $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
-        //     $user->profile_photo = $user->id . '.jpg';
-        // }
-        $image = $request->file('user_profile_photo');
+        if ($request->user_profile_photo !=null) {
+            // $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
+            // $user->profile_photo = $user->id . '.jpg';
+            $image = $request->file('user_profile_photo');
             // バケットの`user_images`フォルダへアップロード
-        $path = Storage::disk('s3')->putFile('user_images', $image, 'public');
-        $user->profile_photo = Storage::disk('s3')->url($path);
+            $path = Storage::disk('s3')->putFile('user_images', $image, 'public');
+            $user->profile_photo = Storage::disk('s3')->url($path);
+        }
+        
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
