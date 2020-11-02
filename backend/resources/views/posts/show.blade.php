@@ -139,7 +139,7 @@
                             <div class="d-flex justify-content-between mb-2">
                               <div class="d-flex">
                                 <div class="user_name mr-2">{{ $post->comments[$i]->user->name }}</div>
-                                <div class="user_image"><img src="{{ asset('storage/user_images/' . $post->comments[$i]->user->profile_photo) }}" width="20" height="20"/></div>
+                                <div class="user_image"><img src="{{ $post->comments[$i]->user->profile_photo }}" width="20" height="20"/></div>
                               </div>
 
                                   
