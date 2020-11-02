@@ -36,7 +36,6 @@ class UserController extends Controller
         //     $path = Storage::disk('s3')->putFile('user_images', $image, 'public');
         //     $user->profile_photo = Storage::disk('s3')->url($path);
         // }
-
         $filename='';
         $url='';
         if ($request->file('user_profile_photo')->isValid()) {
