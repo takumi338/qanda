@@ -7,7 +7,7 @@
     <div class="swiper-wrapper">
         <div class="row swiper-slide">
             <div class="col-md-5 mb-3">
-                <img src="{{ asset('storage/top_images/undraw_Steps_re_odoy.svg') }}" width="90%" height="90%"/>
+                <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/top_images/undraw_Steps_re_odoy.svg" width="90%" height="90%"/>
             </div>
             <div class="col-md-7 mb-3">
                 <div class="m-4">
@@ -28,7 +28,7 @@
         
       <div class="swiper-slide row">
         <div class="col-md-5 mb-3">
-            <img src="{{ asset('storage/top_images/undraw_Chat_re_re1u.svg') }}" width="100%" height="100%"/>
+            <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/top_images/undraw_Chat_re_re1u.svg" width="100%" height="100%"/>
         </div>
         <div class="col-md-7 mb-3">
             <div class="m-4">
@@ -59,7 +59,7 @@
         <h2 class="text-center text-primary mb-4">qandaとは？</h2>
         <div class="row">
           <div class="col-md-4 mb-3">
-            <img src="{{ asset('storage/top_images/undraw_Questions_re_1fy7.svg') }}" class="mx-auto d-block" width="250px" height="250px"/>
+            <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/top_images/undraw_Questions_re_1fy7.svg" class="mx-auto d-block" width="250px" height="250px"/>
             {{-- <img src="https://www.capcom.co.jp/monsterhunter/world-iceborne/topics/e-jang/images/img_bk02_l.jpg" class="mx-auto d-block rounded-circle" width="250px" height="250px" alt=""> --}}
             
             <div class="mt-4">
@@ -69,7 +69,7 @@
           </div>
 
           <div class="col-md-4 mb-3">
-            <img src="{{ asset('storage/top_images/undraw_Freelancer_re_irh4.svg') }}" class="mx-auto d-block" width="250px" height="250px"/>
+            <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/top_images/undraw_Freelancer_re_irh4.svg" class="mx-auto d-block" width="250px" height="250px"/>
             
             <div class="mt-4">
                 <p class="text-center introduction-title">オンラインで手軽に質問できる</p>
@@ -78,7 +78,7 @@
           </div>
  
           <div class="col-md-4 mb-3">
-            <img src="{{ asset('storage/top_images/undraw_Bitcoin_P2P_re_1xqa.svg') }}" class="mx-auto d-block" width="250px" height="250px"/>
+            <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/top_images/undraw_Bitcoin_P2P_re_1xqa.svg" class="mx-auto d-block" width="250px" height="250px"/>
             
             <div class="mt-4">
                 <p class="text-center introduction-title">完全無料</p>
