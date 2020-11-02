@@ -31,9 +31,13 @@ class UserController extends Controller
         //     $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
         //     $user->profile_photo = $user->id . '.jpg';
         // }
-        $path = Storage::disk('s3')->putFile('/', $file, 'public');
+        $image = $request->file('user_profile_photo');
+            // バケットの`pogtor528`フォルダへアップロード
+        $path = Storage::disk('s3')->putFile('user_images', $image, 'public');
+        $url = Storage::disk('s3')->url($path);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->profile_photo = $url;
         $user->save();
         \Session::flash('flash_message','編集成功しました。');
         return redirect(route('posts.index'));

@@ -28,6 +28,7 @@
                             {{ Auth::user()->name }}
                         @if (Auth::user()->profile_photo)
                             <img src="{{ asset('storage/user_images/' . Auth::user()->profile_photo) }}" width="30" height="30"/>
+                            {{-- <img src="{{ Auth::user()->profile_photo) }}" width="30" height="30"/> --}}
                             @else
                             <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/user_images/blank_profile.png" width="30" height="30"/>
                         @endif
