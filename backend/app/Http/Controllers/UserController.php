@@ -28,12 +28,25 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user)
     {
         $user = User::find($request->id);
-        if ($request->user_profile_photo !=null) {
-            // $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
-            // $user->profile_photo = $user->id . '.jpg';
+        // if ($request->user_profile_photo !=null) {
+        //     // $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
+        //     // $user->profile_photo = $user->id . '.jpg';
+        //     $image = $request->file('user_profile_photo');
+        //     // バケットの`user_images`フォルダへアップロード
+        //     $path = Storage::disk('s3')->putFile('user_images', $image, 'public');
+        //     $user->profile_photo = Storage::disk('s3')->url($path);
+        // }
+
+        $filename='';
+        $url='';
+        if ($request->file('user_profile_photo')->isValid()) {
+            $filename = $request->file('user_profile_photo')->store('img');
+            
+            //s3アップロード開始
             $image = $request->file('user_profile_photo');
-            // バケットの`user_images`フォルダへアップロード
+            // バケットの`pogtor528`フォルダへアップロード
             $path = Storage::disk('s3')->putFile('user_images', $image, 'public');
+            // アップロードした画像のフルパスを取得
             $user->profile_photo = Storage::disk('s3')->url($path);
         }
         
