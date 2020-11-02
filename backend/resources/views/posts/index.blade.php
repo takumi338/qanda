@@ -64,7 +64,7 @@
                                 @if ($post->user->profile_photo)
                                   <div class="user_image"><img src="{{ asset('storage/user_images/' . $post->user->profile_photo) }}" width="30" height="30"/></div>
                                 @else
-                                  <img src="{{ asset('storage/user_images/blank_profile.png') }}" width="30" height="30"/>
+                                  <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/user_images/blank_profile.png" width="30" height="30"/>
                                 @endif
                               </div>
                             </a>
