@@ -33,10 +33,11 @@ jobs:
       AWS_DEFAULT_REGION: ap-northeast-1
     steps:
       - checkout
+      - run: ls
       - run: sudo composer self-update --1
       - restore_cache:
-          key: composer-no-dev-v1-{{ checksum "composer.lock" }}
-      - run: composer install -n --no-dev --prefer-dist
+          key: composer-no-dev-v1-{{ checksum "./backend/composer.lock" }}
+      - run: composer install -n --no-dev --prefer-dist=./backend
       - save_cache:
           key: composer-no-dev-v1-{{ checksum "composer.lock" }}
           paths:
