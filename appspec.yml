@@ -2,10 +2,10 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/webapp/qanda/backend
+    destination: /home/webapp/qanda
 
 permissions:
-  - object: /home/webapp/qanda/backend
+  - object: /home/webapp/qanda
     owner: webapp
     group: webapp
 
