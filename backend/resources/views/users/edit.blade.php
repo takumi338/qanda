@@ -27,8 +27,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- dropdown -->
-          
+                  <!-- dropdown -->   
                   <!-- modal -->
                   <div id="modal-delete-{{ $user->id }}" class="modal fade" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
@@ -53,8 +52,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- modal -->
-                  
+                  <!-- modal -->               
                 </div>
                   <div class="card-body">
                     <form method="POST" action="/users/update" enctype="multipart/form-data">
@@ -72,19 +70,6 @@
                         </div>
                         <button type="submit" class="btn btn-primary">保存する</button>
                       </form>
-
-                      {{-- <button class="btn btn-primary"
-                      
-                        onclick="event.preventDefault();
-                                      document.getElementById('delete').submit();"
-                                      location.href="{{ route('users.destroy') }}">
-                         {{ __('削除する') }}
-                      </button>
-                      <form id="delete" action="{{ route('users.destroy') }}" method="POST" style="display: none;">
-                        @method('DELETE')
-                        @csrf
-                        <input name="id" type="hidden" value="{{$user->id}}">
-                      </form> --}}
                   </div>
             </div>
         </div> 

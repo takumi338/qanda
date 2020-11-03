@@ -22,9 +22,6 @@
   
             
           </div>
-
-
-
         
       <div class="swiper-slide row">
         <div class="col-md-5 mb-3">
@@ -39,13 +36,9 @@
                     <a href="{{ route('posts.index') }}" class="start btn btn-primary text-white d-block mx-auto w-75 p-2">いますぐはじめる</a>
                  </div>
             </div>
-        </div>
-
-        
+        </div>       
       </div>
-
       </div>
-
     </div>
 
     <div class="swiper-button-next"></div>
