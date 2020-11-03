@@ -17,6 +17,20 @@ Route::get('/login/guest', 'Auth\LoginController@guestLogin');
 
 Route::get('/', 'HomeController@index')->name('home');
 
+// Route::get('/','PostController@index')->name('index');
+
+// Route::get('/posts/create','PostController@create')->name('create')->middleware('auth');
+// Route::post('/posts/store','PostController@store')->name('store')->middleware('auth');
+
+// Route::get('/posts/{id}','PostController@show')->name('show');
+
+// Route::get('/posts/edit/{id}','PostController@edit')->name('edit')->middleware('auth');
+// Route::post('/posts/update','PostController@update')->name('update')->middleware('auth');
+
+// Route::post('/posts/destroy/{id}','PostController@destroy')->name('destroy')->middleware('auth');
+
+//user
+
 Route::get('/users/{id}','UserController@show')->name('users.show')->middleware('auth');
 
 Route::get('/users/edit/{id}','UserController@edit')->name('users.edit')->middleware('auth');
