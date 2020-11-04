@@ -192,3 +192,37 @@ img{
         .introduction-content{
             color: #828e96;
         }
+
+        .loading {
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+        
+        .loading.active{
+            opacity: 1;
+            visibility: visible;
+            z-index: 2;
+        }
+        
+        @keyframes flashing {
+            50%{
+                opacity: .4;
+            }
+        
+        }
+        
+        .loadingtext{
+            animation: .8s flashing infinite;
+        }
