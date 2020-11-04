@@ -17,7 +17,11 @@
                 <div class="col">
                   {{ $post->title }}
                 </div>
+                
                 <div>
+
+
+
                   @if( Auth::id() === $post->user_id )
                   <!-- dropdown -->
                   <div class="ml-auto card-text">
@@ -67,7 +71,8 @@
                 @endif
                 </div>              
               </div>
-                         
+                
+                
             </div>
           </div>              
               <div class="col">
@@ -91,6 +96,8 @@
                         <p class="updated_time">投稿：{{date('Y年n月j日 H:i', strtotime($post->updated_at))}}</p>
                 </div>
               </div>
+              
+
             
         </div>
     </div> 
@@ -109,7 +116,9 @@
                               <div class="d-flex">
                                 <div class="user_name mr-2">{{ $post->comments[$i]->user->name }}</div>
                                 <div class="user_image"><img src="{{ $post->comments[$i]->user->profile_photo }}" width="20" height="20"/></div>
-                              </div>                              
+                              </div>
+
+                                  
                               <div class="d-flex">
                                 <div class="updated_time">{{date('Y年n月j日 H:i', strtotime($post->comments[$i]->updated_at))}}</div>
                                 <div>
