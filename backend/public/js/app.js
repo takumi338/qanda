@@ -52463,7 +52463,14 @@ $(function (e) {
   $(function () {
     $('.flash_message').fadeOut(2000);
   });
-});
+}); // function loaded(){
+//     document.getElementById("loading").classList.remove("active");
+//     console.log("aaaa");
+// }
+// window.addEventListener("load", function(){
+//     setTimeout(loaded, 500);
+// })
+// setTimeout(loaded, 5000);
 
 /***/ }),
 
