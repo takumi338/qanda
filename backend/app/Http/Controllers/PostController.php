@@ -24,17 +24,10 @@ class PostController extends Controller
     {
         if($request->has('keyword')) {
             // SQLのlike句でitemsテーブルを検索する
-            $tags = Tag::all();
             $posts = Post::where('title', 'like', '%'.$request->get('keyword').'%')
             ->orWhere('content', 'like', '%' . $request->get('keyword').'%')
             ->orderBy('created_at', 'desc')->paginate(5);
-             if($posts->isEmpty()){
-                 return view('posts.noresults' ,compact('posts','tags'));
-                 return view('layouts.sidebar',compact('tags'));
-             }else{
-                return view('posts.index',compact('posts','tags'));
-                return view('layouts.sidebar',compact('tags'));
-             }
+            $tags = Tag::all();
         }
         else{
             $posts = Post::orderBy('created_at', 'desc')->paginate(5);

@@ -52463,14 +52463,7 @@ $(function (e) {
   $(function () {
     $('.flash_message').fadeOut(2000);
   });
-}); // function loaded(){
-//     document.getElementById("loading").classList.remove("active");
-//     console.log("aaaa");
-// }
-// window.addEventListener("load", function(){
-//     setTimeout(loaded, 500);
-// })
-// setTimeout(loaded, 5000);
+});
 
 /***/ }),
 
@@ -52606,8 +52599,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ttt/Desktop/portfolio/qanda/backend/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ttt/Desktop/portfolio/qanda/backend/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /work/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /work/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
