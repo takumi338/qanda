@@ -55,16 +55,16 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary mr-3">
                                     {{ __('ログイン') }}
                                 </button>
 
-                                <button type="submit" class="btn btn-primary">
-                                    　　<a class="text-white" href="/login/guest">ゲストログイン</a>
+                                <button type="submit" class="btn btn-primary text-center">
+                                    　　<a class="text-white mr-4" href="/login/guest">ゲストログイン</a>
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link mt-2" href="{{ route('password.request') }}" style="text-decoration: none;">
                                         {{ __('パスワードを忘れた方はこちら') }}
                                     </a>
                                 @endif
