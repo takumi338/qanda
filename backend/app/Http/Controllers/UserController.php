@@ -15,7 +15,11 @@ class UserController extends Controller
         $user = User::find($id);
         $posts = Post::where('user_id', $id)
             ->orderBy('created_at', 'desc')->paginate(5);
-        return view('users/show',compact('user','posts'));
+        if($posts->isEmpty()){
+            return view('users/noresults',compact('user','posts'));
+        }else{
+            return view('users/show',compact('user','posts'));
+        }
     }
 
     public function edit(User $user,$id)
@@ -28,14 +32,6 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user)
     {
         $user = User::find($request->id);
-        // if ($request->user_profile_photo !=null) {
-        //     // $request->user_profile_photo->storeAs('public/user_images', $user->id . '.jpg');
-        //     // $user->profile_photo = $user->id . '.jpg';
-        //     $image = $request->file('user_profile_photo');
-        //     // バケットの`user_images`フォルダへアップロード
-        //     $path = Storage::disk('s3')->putFile('user_images', $image, 'public');
-        //     $user->profile_photo = Storage::disk('s3')->url($path);
-        // }
         $filename='';
         $url='';
         if ($request->file('user_profile_photo')->isValid()) {
