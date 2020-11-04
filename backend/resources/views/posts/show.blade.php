@@ -11,17 +11,13 @@
   <div class="row justify-content-center mt-4">
     <div class="col-md-12">
         <div class="card"> 
-          <a class="card-header_title" href="/posts/{{ $post->id }}">
+          <div class="card-header_title">
             <div class="card-header">
               <div class="row justify-content-between">
                 <div class="col">
                   {{ $post->title }}
                 </div>
-                
                 <div>
-
-
-
                   @if( Auth::id() === $post->user_id )
                   <!-- dropdown -->
                   <div class="ml-auto card-text">
@@ -43,7 +39,6 @@
                     </div>
                   </div>
                   <!-- dropdown -->
-          
                   <!-- modal -->
                   <div id="modal-delete-{{ $post->id }}" class="modal fade" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
@@ -69,36 +64,10 @@
                   </div>
                   <!-- modal -->
                 @endif
-        
-                  {{-- @if(Auth::id() === $post->user_id)
-                  <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    <i class="fas fa-ellipsis-v fa-lg	"></i>
-                  </a>
-
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                    <a href="/posts/{{ $post->id }}/edit" class="dropdown-item">編集</a>
-
-                    <a class="dropdown-item" href="{{ route('posts.destroy', ['post' => $post]) }}"
-                         onclick="event.preventDefault();
-                                       document.getElementById('delete').submit();">
-                          {{ __('削除') }}
-                      </a>
-
-                      <form id="delete" action="{{ route('posts.destroy', ['post' => $post]) }}" method="POST" style="display: none;">
-                        @method('DELETE')
-                        @csrf
-                        <input type="hidden" value="{{$post->id}}">
-                      </form>
-
-                  </div>
-                  @endif --}}
                 </div>              
               </div>
-                
-                
             </div>
-          </a>              
+          </div>              
               <div class="col">
                 <div class="card-body">
                   <p class="post_content text-dark">{{ $post->content }}</p>
@@ -109,7 +78,6 @@
                     @endfor
                     @endif
                   </div>
-
                     <div class="mb-2">
                         @if($post->is_liked_by_auth_user())
                           <a href="{{ route('posts.unlike', ['id' => $post->id]) }}" class="btn btn-success btn-sm">いいね<span class="badge">{{ $post->likes->count() }}</span></a>
@@ -120,13 +88,9 @@
                         <p class="updated_time">投稿：{{date('Y年n月j日 H:i', strtotime($post->updated_at))}}</p>
                 </div>
               </div>
-              
-
-            
         </div>
     </div> 
 </div>
-
     @if(!($post->comments == '[]'))
       <div class="comments">
         <div class="row justify-content-center mt-4">
