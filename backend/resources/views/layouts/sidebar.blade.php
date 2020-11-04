@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-12 col-md-3">
     <div class="sidebar_content">
       <div class="sidebar_content mt-4">
-        <form method="GET" action="/">
+        <form method="GET" action="/allposts">
           <div class="form-group mb-4">
             <label class="mb-4 d-block text-center text-primary" for="exampleInputEmail1"><i class="far fa-comment mr-1"></i>質問を検索する</label>
             <input name="keyword" type="text" class="form-control" placeholder="キーワードを入力してください">
