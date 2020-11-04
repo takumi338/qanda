@@ -11,7 +11,7 @@
   <div class="row justify-content-center mt-4">
     <div class="col-md-12">
         <div class="card"> 
-          <div class="card-header_title text-primary">
+          <a class="card-header_title" href="/posts/{{ $post->id }}">
             <div class="card-header">
               <div class="row justify-content-between">
                 <div class="col">
@@ -69,12 +69,36 @@
                   </div>
                   <!-- modal -->
                 @endif
+        
+                  {{-- @if(Auth::id() === $post->user_id)
+                  <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <i class="fas fa-ellipsis-v fa-lg	"></i>
+                  </a>
+
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                    <a href="/posts/{{ $post->id }}/edit" class="dropdown-item">編集</a>
+
+                    <a class="dropdown-item" href="{{ route('posts.destroy', ['post' => $post]) }}"
+                         onclick="event.preventDefault();
+                                       document.getElementById('delete').submit();">
+                          {{ __('削除') }}
+                      </a>
+
+                      <form id="delete" action="{{ route('posts.destroy', ['post' => $post]) }}" method="POST" style="display: none;">
+                        @method('DELETE')
+                        @csrf
+                        <input type="hidden" value="{{$post->id}}">
+                      </form>
+
+                  </div>
+                  @endif --}}
                 </div>              
               </div>
                 
                 
             </div>
-          </div>              
+          </a>              
               <div class="col">
                 <div class="card-body">
                   <p class="post_content text-dark">{{ $post->content }}</p>
