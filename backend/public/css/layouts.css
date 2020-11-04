@@ -192,3 +192,7 @@ img{
         .introduction-content{
             color: #828e96;
         }
+
+        a:hover{
+            text-decoration: none;
+        }
