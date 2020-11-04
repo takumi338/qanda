@@ -28,6 +28,9 @@
 </head>
 
 <body>
+  <div id="loading" class="loading active">
+    <div class="loadingtext"><i class="fas fa-spinner fa-spin fa-2x text-primary"></i></div>
+  </div>
   <div id="app">
     <div class="container">
       @include('error')
@@ -73,6 +76,16 @@
       prevEl: '.swiper-button-prev',
     },
   });
+
+  function loaded(){
+      document.getElementById("loading").classList.remove("active");
+  }
+
+  window.addEventListener("load", function(){
+      setTimeout(loaded, 500);
+  })
+
+  setTimeout(loaded, 5000);
 </script>
 </body>
 
