@@ -11,41 +11,41 @@ URL: http://qanda.work/
 
 ## 機能一覧
 ### ユーザー機能
--ユーザー登録・編集・削除
--一覧表示
--ゲストログイン
--プロフィール画像の登録・編集
--マイページ編集
+- ユーザー登録・編集・削除
+- 一覧表示
+- ゲストログイン
+- プロフィール画像の登録・編集
+- マイページ編集
 ### 投稿機能
--質問の投稿・編集・削除
--一覧表示、詳細表示
--タグ機能
+- 質問の投稿・編集・削除
+- 一覧表示、詳細表示
+- タグ機能
 いいね機能
--検索（キーワード検索・タグ検索）
+- 検索（キーワード検索・タグ検索）
 ### コメント機能
--コメントの投稿・編集・削除
+- コメントの投稿・編集・削除
 ### その他
--レスポンシブ対応
--テスト
+- レスポンシブ対応
+- テスト
 ## 使用技術
 ### フロント
--HTML
--CSS
--JavaScript
--jQuery
--bootstrap
+- HTML
+- CSS
+- JavaScript
+- jQuery
+- bootstrap
 ### バックエンド
--PHP 7.3.23
--Laravel 6.18.43
--サーバー
--Nginx
--PHP-FPM
+- PHP 7.3.23
+- Laravel 6.18.43
+- サーバー
+- Nginx
+- PHP-FPM
 ### DB
--MySQL 5.7.32
--インフラ・開発環境等
--AWS(EC2,RDS,Route53,S3)
--Docker/docker-compose
--CircleCI(CI/CD)
+- MySQL 5.7.32
+- インフラ・開発環境等
+- AWS(EC2,RDS,Route53,S3)
+- Docker/docker-compose
+- CircleCI(CI/CD)
 ### その他
--PHPUnit
+- PHPUnit
 
