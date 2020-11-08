@@ -10,7 +10,7 @@
       @foreach ($posts as $post)
           <div class="row justify-content-center mt-4">
               <div class="col-md-12">
-                  <div class="card card-shadow"> 
+                  <div class="card card-shadow fade-in-bottom"> 
 
                         <div class="row">
                         <div class="col-2">
@@ -82,7 +82,7 @@
               </div> 
           </div>
     @endforeach
-<div class="pagenate row justify-content-center mt-4">
+<div class="pagenate row justify-content-center mt-4 fade-in-bottom">
   {{ $posts->links() }}
 </div>
 @endsection
