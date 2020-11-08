@@ -36,7 +36,6 @@
                                 </a>
                               </div>
                               <div class="post_time">
-                                {{-- <p>投稿：{{date('Y年n月j日 H:i', strtotime($post->updated_at))}}</p> --}}
                                 <p class="updated_time">{{$post->updated_at->diffForHumans()}}</p>
                               </div>
                             </div>
