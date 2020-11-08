@@ -69,7 +69,11 @@
 
                         <div class="d-flex">
                           <div class="user_name mr-2 text-primary">{{ $post->user->name }}</div>
-                          <div class="user_image"><img src="{{ $post->user->profile_photo }}" width="30" height="30"/></div>
+                          @if ($post->user->profile_photo)
+                            <div class="user_image"><img src="{{ $post->user->profile_photo }}" width="30" height="30"/></div>
+                          @else
+                            <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/user_images/blank_profile.png" width="30" height="30"/>
+                          @endif
                           </a>
                         </div>
                       </div>
@@ -87,7 +91,6 @@
     </div>
     @endforeach
   </div>
-<div class="pagenate row justify-content-center mt-4">
-  {{-- {{ $tag->links() }} --}}
+ <div class="mt-4">
 </div>
 @endsection

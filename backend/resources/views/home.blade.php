@@ -7,7 +7,6 @@
     <div class="swiper-wrapper">
         <div class="row swiper-slide">
             <div class="col-md-5 mb-3 fade-in-bottom">
-                {{-- <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/top_images/undraw_Steps_re_odoy.svg" width="90%" height="90%"/> --}}
                 <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/top_images/gamer-colour.svg" width="90%" height="90%"/>
             </div>
             <div class="col-md-7 mb-3 fade-in-bottom">
