@@ -103,7 +103,11 @@
                             <div class="d-flex justify-content-between mb-2">
                               <div class="d-flex">
                                 <div class="user_name mr-2">{{ $post->comments[$i]->user->name }}</div>
-                                <div class="user_image"><img src="{{ $post->comments[$i]->user->profile_photo }}" width="20" height="20"/></div>
+                                  @if ($post->comments[$i]->user->profile_photo)
+                                    <div class="user_image"><img src="{{ $post->comments[$i]->user->profile_photo }}" width="30" height="30"/></div>
+                                  @else
+                                    <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/user_images/blank_profile.png" width="30" height="30"/>
+                                  @endif
                               </div>
 
                                   
