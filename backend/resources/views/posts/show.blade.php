@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container fade-in-bottom">
   <div class="row justify-content-center mt-4">
     <div class="col-md-12">
         <div class="card"> 
@@ -175,7 +175,7 @@
     @endif
 </div>
 
-<form method="POST" action="/comments/store" class="mt-4">
+<form method="POST" action="/comments/store" class="mt-4 fade-in-bottom2">
   <label for="inputPassword" class="col col-form-label">コメント</label>
   @csrf
     <div class="form-group row">

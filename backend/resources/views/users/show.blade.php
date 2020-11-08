@@ -46,7 +46,7 @@
 @section('content')
 <p class="mt-4">{{$user->name}}さんが投稿した質問</p>
 @foreach ($posts as $post)
-          <div class="row justify-content-center mt-4">
+          <div class="row justify-content-center mt-4 fade-in-bottom">
               <div class="col-md-12">
                   <div class="card card-shadow"> 
                         <div class="row">
@@ -119,7 +119,7 @@
               </div> 
           </div>
     @endforeach
-    <div class="pagenate row justify-content-center mt-4">
+    <div class="pagenate row justify-content-center mt-4 fade-in-bottom">
         {{ $posts->links() }}
       </div>
 @endsection

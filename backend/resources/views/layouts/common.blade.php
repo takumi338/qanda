@@ -14,6 +14,7 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}"></script>
   <script src="{{ asset('js/intro.js') }}"></script>
+  <script src="{{ mix('js/app.js') }}"></script>
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -22,11 +23,6 @@
   <link href="{{ asset('css/layouts.css') }}" rel="stylesheet">
   <link href="{{ asset('css/introjs.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -45,11 +41,7 @@
       </div>
   </div>
   @include('layouts.footer')
-
-  {{-- <script src="{{ mix('js/app.js') }}"></script> この行を追加 --}}
   
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -59,25 +51,6 @@
                 toastr.success('{{ session('flash_message') }}');
         });
     @endif
-</script>
-<script>
-  var swiper = new Swiper('.swiper-container', {
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    // loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
 
   function loaded(){
       document.getElementById("loading").classList.remove("active");
@@ -88,6 +61,20 @@
   })
 
   setTimeout(loaded, 5000);
+
+$(function(){
+   $(window).on('load scroll', function() {
+      var winScroll = $(window).scrollTop();
+      var winHeight = $(window).height();
+      var scrollPos = winScroll + (winHeight * 0.8);
+
+      $(".show").each(function() {
+         if($(this).offset().top < scrollPos) {
+            $(this).css({opacity: 1, transform: 'translate(0, 0)'});
+         }
+      });
+   });
+});
 </script>
 </body>
 
