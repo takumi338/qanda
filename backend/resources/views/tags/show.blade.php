@@ -46,7 +46,6 @@
                           </a>
                         </div>
                         <div class="post_time">
-                          {{-- <p>投稿：{{date('Y年n月j日 H:i', strtotime($post->updated_at))}}</p> --}}
                           <p class="updated_time">{{$post->updated_at->diffForHumans()}}</p>
                         </div>
                       </div>
@@ -70,7 +69,7 @@
 
                         <div class="d-flex">
                           <div class="user_name mr-2 text-primary">{{ $post->user->name }}</div>
-                          <div class="user_image"><img src="{{ asset('storage/user_images/' . $post->user->profile_photo) }}" width="30" height="30"/></div>
+                          <div class="user_image"><img src="{{ $post->user->profile_photo }}" width="30" height="30"/></div>
                           </a>
                         </div>
                       </div>
