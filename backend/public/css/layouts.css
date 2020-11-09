@@ -252,7 +252,7 @@
     a:hover{
             text-decoration: none;
     }
-    .loading {
+    /* .loading {
         position: fixed;
         top: 0;
         left: 0;
@@ -270,10 +270,11 @@
         z-index: 1;
     }
 
+
     .loading.active{
         opacity: 1;
         visibility: visible;
-    }
+    } */
 
     @keyframes flashing {
         50%{

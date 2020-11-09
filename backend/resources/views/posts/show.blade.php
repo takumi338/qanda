@@ -7,6 +7,61 @@
 @endsection
 
 @section('content')
+
+<!-- modal -->
+@for ($i = 0; $i < $post->comments->count(); $i++)
+  <div id="modal-delete-{{ $post->id }}" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="POST" action="{{ route('comments.destroy') }}">
+          @csrf
+          @method('DELETE')
+          <input name="id" type="hidden" value="{{$post->comments[$i]->id}}">
+          <div class="modal-body">
+            コメントを削除します。よろしいですか？
+          </div>
+          <div class="modal-footer justify-content-between">
+            <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+            <button type="submit" class="btn btn-danger">削除する</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+@endfor
+<!-- modal -->
+
+<!-- modal -->
+<div id="modal-delete-{{ $post->id }}" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" action="{{ route('posts.destroy', ['post' => $post]) }}">
+        @csrf
+        @method('DELETE')
+        <div class="modal-body">
+          {{ $post->title }}を削除します。よろしいですか？
+        </div>
+        <div class="modal-footer justify-content-between">
+          <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+          <button type="submit" class="btn btn-danger">削除する</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- modal -->
+
+
 <div class="container fade-in-bottom">
   <div class="row justify-content-center mt-4">
     <div class="col-md-12">
@@ -38,31 +93,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- dropdown -->
-                  <!-- modal -->
-                  <div id="modal-delete-{{ $post->id }}" class="modal fade" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <form method="POST" action="{{ route('posts.destroy', ['post' => $post]) }}">
-                          @csrf
-                          @method('DELETE')
-                          <div class="modal-body">
-                            {{ $post->title }}を削除します。よろしいですか？
-                          </div>
-                          <div class="modal-footer justify-content-between">
-                            <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-                            <button type="submit" class="btn btn-danger">削除する</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- modal -->
+
                 @endif
                 </div>              
               </div>
@@ -137,31 +168,7 @@
                   </div>
                   <!-- dropdown -->
           
-                  <!-- modal -->
-                  <div id="modal-delete-{{ $post->id }}" class="modal fade" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <form method="POST" action="{{ route('comments.destroy') }}">
-                          @csrf
-                          @method('DELETE')
-                          <input name="id" type="hidden" value="{{$post->comments[$i]->id}}">
-                          <div class="modal-body">
-                            コメントを削除します。よろしいですか？
-                          </div>
-                          <div class="modal-footer justify-content-between">
-                            <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-                            <button type="submit" class="btn btn-danger">削除する</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- modal -->
+
                 @endif
                                 </div> 
                             </div>
