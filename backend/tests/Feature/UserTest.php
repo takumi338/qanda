@@ -11,16 +11,16 @@ class UserTest extends TestCase
 {
     use RefreshDatabase;
 
-    // public function testDisplayUsers() 
-    // {   
-    //     $user = factory(User::class)->create();
+    public function testDisplayUsers() 
+    {   
+        $user = factory(User::class)->create();
 
-    //     $response = $this->actingAs($user);
+        $response = $this->actingAs($user);
 
-    //     $response = $response->get('/users/{id}');
+        $response = $response->get('/users/{id}');
 
-    //     $response->assertSeeText($user->name);
-    // }
+        $response->assertSeeText($user->name);
+    }
 
     public function testEditUsers() 
     {   
