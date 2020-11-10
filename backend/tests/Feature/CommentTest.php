@@ -29,18 +29,18 @@ class CommentTest extends TestCase
         $response->assertDatabaseHas('comments', $data);
     }
 
-    // public function testCommentEdit()
-    // {
-    //     $comment = factory(Comment::class)->create();
-    //     $user = User::find($comment->user_id);
+    public function testCommentEdit()
+    {
+        $comment = factory(Comment::class)->create();
+        $user = User::find($comment->user_id);
 
-    //     $response = $this->actingAs($user);
+        $response = $this->actingAs($user);
 
-    //     $response = $this->get('comments/edit/'.$comment->id);
+        $response = $this->get('comments/edit/'.$comment->id);
 
-    //     $response->assertStatus(200)
-    //         ->assertViewIs('comments.edit');
-    // }
+        $response->assertStatus(200)
+            ->assertViewIs('comments.edit');
+    }
 
     public function testCommentUpdate()
     {
