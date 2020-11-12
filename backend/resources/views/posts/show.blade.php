@@ -8,60 +8,6 @@
 
 @section('content')
 
-<!-- modal -->
-@for ($i = 0; $i < $post->comments->count(); $i++)
-  <div id="modal-delete-{{ $post->id }}" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form method="POST" action="{{ route('comments.destroy') }}">
-          @csrf
-          @method('DELETE')
-          <input name="id" type="hidden" value="{{$post->comments[$i]->id}}">
-          <div class="modal-body">
-            コメントを削除します。よろしいですか？
-          </div>
-          <div class="modal-footer justify-content-between">
-            <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-            <button type="submit" class="btn btn-danger">削除する</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-@endfor
-<!-- modal -->
-
-<!-- modal -->
-<div id="modal-delete-{{ $post->id }}" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form method="POST" action="{{ route('posts.destroy', ['post' => $post]) }}">
-        @csrf
-        @method('DELETE')
-        <div class="modal-body">
-          {{ $post->title }}を削除します。よろしいですか？
-        </div>
-        <div class="modal-footer justify-content-between">
-          <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-          <button type="submit" class="btn btn-danger">削除する</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- modal -->
-
-
 <div class="container fade-in-bottom">
   <div class="row justify-content-center mt-4">
     <div class="col-md-12">
@@ -84,12 +30,19 @@
                       </a>
                       <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="{{ route("posts.edit", ['post' => $post]) }}">
-                          <i class="fas fa-pen mr-1"></i>記事を編集する
+                          <i class="fas fa-pen mr-1"></i>投稿を編集する
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $post->id }}">
-                          <i class="fas fa-trash-alt mr-1"></i>記事を削除する
+                        <a class="dropdown-item text-danger" href="{{ route('posts.destroy', ['post' => $post]) }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('post_destroy').submit();">
+                                <i class="fas fa-trash-alt mr-1"></i>{{ __('投稿を削除する') }}
                         </a>
+                        <form id="post_destroy" action="{{ route('posts.destroy', ['post' => $post]) }}" method="POST" style="display: none;">
+                            @csrf
+                            @method('DELETE')
+                            <input name="id" type="hidden" value="{{ $post->id }}">
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -160,15 +113,21 @@
                           <i class="fas fa-pen mr-1"></i>コメントを編集する
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $post->id }}">
-                          <i class="fas fa-trash-alt mr-1"></i>コメントを削除する
-                        </a>
+                        <a class="dropdown-item text-danger" href="{{ route('comments.destroy') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('comment_destroy').submit();">
+                                <i class="fas fa-trash-alt mr-1"></i>{{ __('コメントを削除する') }}
+                            </a>
+
+                            <form id="comment_destroy" action="{{ route('comments.destroy') }}" method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                                <input name="id" type="hidden" value="{{$post->comments[$i]->id}}">
+                            </form>
                       </div>
                     </div>
                   </div>
                   <!-- dropdown -->
-          
-
                 @endif
                                 </div> 
                             </div>
