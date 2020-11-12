@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -41,6 +42,7 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
+        \Session::flash('flash_message','ログインしました。');
         return '/allposts';
     }
 
@@ -50,9 +52,16 @@ class LoginController extends Controller
         $password = 'guestguest';
 
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            \Session::flash('flash_message','ログインしました。');
             return redirect()->route('posts.index');
         }
 
         return redirect(route('posts.index'));
+    }
+
+    protected function loggedOut(Request $request)
+    {
+        \Session::flash('flash_message','ログアウトしました。');
+         return redirect(route('home'));
     }
 }

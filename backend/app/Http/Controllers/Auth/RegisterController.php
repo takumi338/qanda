@@ -73,6 +73,7 @@ class RegisterController extends Controller
 
     public function redirectPath()
     {
+        \Session::flash('flash_message','新規登録しました。');
         return '/allposts';
     }
 }
