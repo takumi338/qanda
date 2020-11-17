@@ -34,8 +34,8 @@
             <img src="https://qandaphoto.s3-ap-northeast-1.amazonaws.com/top_images/undraw_Questions_re_1fy7.svg" class="mx-auto d-block" width="250px" height="250px"/>
             
             <div class="mt-4">
-                <p class="text-center introduction-title font-weight-bold">プログラミングの独学者にピッタリ</p>
-            <p class="text-left introduction-content">プログラミングは一人で学習しているとエラーを解決できず、挫折しがち。そんなときはqandaで質問してみよう。</p>
+                <p class="text-center introduction-title font-weight-bold">プログラミングの独学にピッタリ</p>
+            <p class="text-center introduction-content">独学は一人でエラー解決できず挫折しがちです。そんなときはqandaで質問してみよう。</p>
            </div>
           </div>
 
@@ -44,7 +44,7 @@
             
             <div class="mt-4">
                 <p class="text-center introduction-title font-weight-bold">オンラインで手軽に質問できる</p>
-            <p class="text-left introduction-content">質問も回答もオンライン上で完結。PCでもスマホでも気軽に利用できます。</p>
+            <p class="text-center introduction-content">質問も回答もオンライン上で完結。</br>PCでもスマホでも気軽に利用できます。</p>
            </div>
           </div>
  
@@ -53,7 +53,7 @@
             
             <div class="mt-4">
                 <p class="text-center introduction-title font-weight-bold">完全無料</p>
-            <p class="text-left introduction-content">qandaは完全無料でご利用いただけます。一切料金などかかりません。</p>
+            <p class="text-center introduction-content">qandaは完全無料でご利用いただけます。</br>一切料金などかかりません。</p>
            </div>
           </div>
         </div>
